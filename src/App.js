@@ -1,8 +1,13 @@
+import { CssBaseline, ThemeProvider } from '@mui/material';
 import MainPage from './pages';
+import theme from './theme';
 
 function App() {
   return (
-    <MainPage />
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <MainPage />
+    </ThemeProvider>
   );
 }
 
