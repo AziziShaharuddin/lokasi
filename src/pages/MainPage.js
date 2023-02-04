@@ -5,6 +5,7 @@ import Map from "./Map";
 const GOOGLE_MAPS_API_KEY = process.env.REACT_APP_GOOGLE_MAPS_API_KEY;
 
 const MainPage = () => {
+  // LOAD THE GOOGLE MAPS
   const { isLoaded } = useLoadScript({
     libraries: ["places"],
     googleMapsApiKey: GOOGLE_MAPS_API_KEY,
@@ -12,7 +13,6 @@ const MainPage = () => {
   if (!isLoaded) {
     return;
   }
-
   return <Map />;
 };
 

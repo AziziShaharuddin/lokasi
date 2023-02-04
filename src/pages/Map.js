@@ -1,6 +1,6 @@
 import { Box, MenuItem, Typography } from "@mui/material";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
-import React, { useCallback, useEffect, useMemo, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   retrievedDataFail,
@@ -15,7 +15,7 @@ import usePlacesAutocomplete, {
 import { LocationOn } from "@mui/icons-material";
 
 const Map = () => {
-  const center = useMemo(() => ({ lat: 3.16, lng: 101.71 }), []);
+  const [center, setCenter] = useState({ lat: 3.16, lng: 101.71 })
   const mapRef = useRef();
   const onLoad = useCallback((map) => (mapRef.current = map), []);
   const {
@@ -24,14 +24,18 @@ const Map = () => {
     suggestions: { status, loading, data },
     clearSuggestions,
   } = usePlacesAutocomplete();
+
+  // Function to handle selection of autocomplete recommendations
   const handleSelect = async (val) => {
     setValue(val, false);
     clearSuggestions();
     const results = await getGeocode({ address: val });
     const { lat, lng } = getLatLng(results[0]);
     mapRef.current?.panTo({ lat, lng });
+    setCenter({ lat, lng })
   };
 
+  // redux to dispatch action and retrieve data from the store
   const suggestions = useSelector((state) => state.autoComplete?.data);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -110,7 +114,7 @@ const Map = () => {
               </Box>
             </MenuItem>
           ))}
-        {status === "ZERO_RESULTS" && <MenuItem>Location not found</MenuItem>}
+        {status === "ZERO_RESULTS" && <MenuItem disabled sx={{ py: 2 }}>Location not found</MenuItem>}
       </Box>
       <GoogleMap
         zoom={10}
