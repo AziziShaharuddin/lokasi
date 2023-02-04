@@ -1,4 +1,10 @@
-import { Box, MenuItem, Typography } from "@mui/material";
+import {
+  Box,
+  MenuItem,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -15,7 +21,10 @@ import usePlacesAutocomplete, {
 import { LocationOn } from "@mui/icons-material";
 
 const Map = () => {
-  const [center, setCenter] = useState({ lat: 3.16, lng: 101.71 })
+  const theme = useTheme();
+  const laptop = useMediaQuery(theme.breakpoints.up("lg"));
+  const phone = useMediaQuery(theme.breakpoints.down("sm"));
+  const [center, setCenter] = useState({ lat: 3.16, lng: 101.71 });
   const mapRef = useRef();
   const onLoad = useCallback((map) => (mapRef.current = map), []);
   const {
@@ -32,7 +41,7 @@ const Map = () => {
     const results = await getGeocode({ address: val });
     const { lat, lng } = getLatLng(results[0]);
     mapRef.current?.panTo({ lat, lng });
-    setCenter({ lat, lng })
+    setCenter({ lat, lng });
   };
 
   // redux to dispatch action and retrieve data from the store
@@ -59,7 +68,14 @@ const Map = () => {
         display: "flex",
       }}
     >
-      <InputField value={value} setValue={setValue} />
+      <InputField
+        sx={{
+          width: phone ? "90%" : "500px",
+          borderRadius: phone ? "5px" : "30px",
+        }}
+        value={value}
+        setValue={setValue}
+      />
       <Box
         sx={{
           display: "flex",
@@ -71,7 +87,7 @@ const Map = () => {
           zIndex: 999,
           backgroundColor: "white.main",
           marginTop: "5px",
-          width: "450px",
+          width: phone ? "90%" : "450px",
           borderRadius: "5px",
         }}
       >
@@ -114,13 +130,22 @@ const Map = () => {
               </Box>
             </MenuItem>
           ))}
-        {status === "ZERO_RESULTS" && <MenuItem disabled sx={{ py: 2 }}>Location not found</MenuItem>}
+        {status === "ZERO_RESULTS" && (
+          <MenuItem disabled sx={{ py: 2 }}>
+            Location not found
+          </MenuItem>
+        )}
       </Box>
       <GoogleMap
         zoom={10}
         center={center}
         mapContainerStyle={{ height: "100%", width: "100%" }}
         onLoad={onLoad}
+        options={
+          !laptop && {
+            disableDefaultUI: true,
+          }
+        }
       >
         <MarkerF position={center} />
       </GoogleMap>
