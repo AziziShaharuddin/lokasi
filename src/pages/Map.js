@@ -1,15 +1,6 @@
-import {
-  Box,
-  MenuItem,
-  Typography,
-} from "@mui/material";
+import { Box, MenuItem, Typography } from "@mui/material";
 import { GoogleMap, MarkerF } from "@react-google-maps/api";
-import React, {
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-} from "react";
+import React, { useCallback, useEffect, useMemo, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   retrievedDataFail,
@@ -100,13 +91,20 @@ const Map = () => {
                   flexDirection: "column",
                   justifyContent: "space-around",
                   alignItems: "start",
-                  width: '100%'
+                  width: "100%",
                 }}
               >
-                <Typography sx={{ color: 'dark-text.main', fontWeight: 500 }}>
+                <Typography sx={{ color: "dark-text.main", fontWeight: 500 }}>
                   {item?.structured_formatting?.main_text}
                 </Typography>
-                <Typography noWrap variant="body2" sx={{ color: 'light-gray-text.main', width: 'calc(100% - 50px)' }}>
+                <Typography
+                  noWrap
+                  variant="body2"
+                  sx={{
+                    color: "light-gray-text.main",
+                    width: "calc(100% - 50px)",
+                  }}
+                >
                   {item?.structured_formatting?.secondary_text}
                 </Typography>
               </Box>

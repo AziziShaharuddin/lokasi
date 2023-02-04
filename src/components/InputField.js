@@ -6,7 +6,7 @@ import { Box, useTheme } from "@mui/material";
 
 const InputField = ({ sx, value, setValue, ...rest }) => {
   const [isFocus, setIsFocus] = useState(false);
-  const theme = useTheme()
+  const theme = useTheme();
   const defaultProps = () => {
     return {
       px: 2,
@@ -14,7 +14,7 @@ const InputField = ({ sx, value, setValue, ...rest }) => {
       alignItems: "center",
       gap: 2,
       boxSizing: "border-box",
-      outline: 0
+      outline: 0,
     };
   };
 
@@ -31,14 +31,26 @@ const InputField = ({ sx, value, setValue, ...rest }) => {
         top: 10,
         left: "50%",
         transform: "translate(-50%,0)",
-        outline: isFocus ? '2px solid' : "1px solid",
-        outlineColor: isFocus ? theme.palette.primary.main : theme.palette['light-gray-text'].main,
+        outline: isFocus ? "2px solid" : "1px solid",
+        outlineColor: isFocus
+          ? theme.palette.primary.main
+          : theme.palette["light-gray-text"].main,
         borderRadius: "30px",
         ...sx,
       }}
     >
-      <img src={LokasiLogo} alt="logo" style={{ height: "30px", marginRight: '20px', marginLeft: '20px' }} />
-      <Box sx={{ height: '30px', width: '2px', backgroundColor: theme.palette['gray'].main }} />
+      <img
+        src={LokasiLogo}
+        alt="logo"
+        style={{ height: "30px", marginRight: "20px", marginLeft: "20px" }}
+      />
+      <Box
+        sx={{
+          height: "30px",
+          width: "2px",
+          backgroundColor: theme.palette["gray"].main,
+        }}
+      />
       <InputBase
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -52,7 +64,7 @@ const InputField = ({ sx, value, setValue, ...rest }) => {
             <Close
               sx={{ cursor: "pointer" }}
               color="primary"
-              onClick={() => setValue('')}
+              onClick={() => setValue("")}
             />
           )
         }

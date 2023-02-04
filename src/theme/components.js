@@ -1,4 +1,4 @@
-import palette from "./palette"
+import palette from "./palette";
 
 const components = {
   MuiInputBase: {
@@ -15,13 +15,13 @@ const components = {
       //   },
       // },
       input: {
-        color: palette['dark-text'].main,
-        '&::placeholder': {
-          color: `${palette['light-gray-text'].main}`,
+        color: palette["dark-text"].main,
+        "&::placeholder": {
+          color: `${palette["light-gray-text"].main}`,
           opacity: 1,
         },
       },
     },
   },
-}
-export default components
+};
+export default components;

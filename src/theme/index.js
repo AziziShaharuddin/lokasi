@@ -4,7 +4,7 @@ import components from "./components";
 
 const theme = createTheme({
   palette,
-  components
-})
+  components,
+});
 
-export default theme
+export default theme;

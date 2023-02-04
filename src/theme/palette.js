@@ -1,22 +1,22 @@
 const palette = {
   primary: {
-    main: '#2F80ED'
+    main: "#2F80ED",
   },
   secondary: {
-    main: '#D09A01'
+    main: "#D09A01",
   },
-  'dark-text': {
-    main: '#3A3A3A',
+  "dark-text": {
+    main: "#3A3A3A",
   },
-  'light-gray-text': {
-    main: '#8A8A8A',
+  "light-gray-text": {
+    main: "#8A8A8A",
   },
-  'gray': {
-    main: '#E5E5E5',
+  gray: {
+    main: "#E5E5E5",
   },
   white: {
-    main: '#FFFFFF',
+    main: "#FFFFFF",
   },
-}
+};
 
-export default palette
+export default palette;

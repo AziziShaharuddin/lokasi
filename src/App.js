@@ -1,8 +1,8 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
-import { Provider } from 'react-redux';
-import MainPage from './pages/MainPage';
-import theme from './theme';
-import store from './store';
+import { CssBaseline, ThemeProvider } from "@mui/material";
+import { Provider } from "react-redux";
+import MainPage from "./pages/MainPage";
+import theme from "./theme";
+import store from "./store";
 
 function App() {
   return (
