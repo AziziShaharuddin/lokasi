@@ -6,14 +6,14 @@ const components = {
       placeholder: "Search for places",
     },
     styleOverrides: {
-      root: {
-        outline: '1px solid',
-        outlineColor: `${palette['light-gray-text'].main}`,
-        '&.Mui-focused': {
-          outline: '2px  solid',
-          outlineColor: `${palette.primary.main}`,
-        },
-      },
+      // root: {
+      //   outline: '1px solid',
+      //   outlineColor: `${palette['light-gray-text'].main}`,
+      //   '&.Mui-focused': {
+      //     outline: '2px  solid',
+      //     outlineColor: `${palette.primary.main}`,
+      //   },
+      // },
       input: {
         color: palette['dark-text'].main,
         '&::placeholder': {
