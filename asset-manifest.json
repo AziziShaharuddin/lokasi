@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/lokasi/static/css/main.e6c13ad2.css",
+    "main.js": "/lokasi/static/js/main.78362286.js",
+    "static/js/787.9d266386.chunk.js": "/lokasi/static/js/787.9d266386.chunk.js",
+    "index.html": "/lokasi/index.html",
+    "main.e6c13ad2.css.map": "/lokasi/static/css/main.e6c13ad2.css.map",
+    "main.78362286.js.map": "/lokasi/static/js/main.78362286.js.map",
+    "787.9d266386.chunk.js.map": "/lokasi/static/js/787.9d266386.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.78362286.js"
+  ]
+}
